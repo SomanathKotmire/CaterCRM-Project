@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://indiapostgdsonline1.cept.gov.in/Reg_Preferences.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	Preferences
+</title>
+    <script src="./Preferences_files/jquery-1.9.1.min.js.download"></script>
+    <script src="./Preferences_files/jquery-ui.js.download"></script>
+    <script src="./Preferences_files/jquery-3.3.1.slim.min.js.download" type="text/javascript"></script>
+    <link href="./Preferences_files/jquery-ui.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        function validation() {
+            var errmsg = "";
+            if ($('#ddldiv1 option:selected').index() == 0) {
+                errmsg += "Please select Division. \n";
+            }
+            if ($('#ddlverifycircle option:selected').index() == 0) {
+                errmsg += "Please select Circle for Document verification. \n";
+            }
+            if ($('#ddlverifydiv option:selected').index() == 0) {
+                errmsg += "Please select Division for Document verification. \n";
+            }
+            if (!$('#chkDeclaration').prop('checked')) {
+                errmsg += "Please check all Declarations \n";
+            }
+            if (errmsg == "") {
+                return true;
+            }
+            else {
+                alert(errmsg);
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        //preventing back button click
+        function backhis() {
+            if (history.length > 0)
+                history.go(+1);
+        }
+    </script>
+    
+    <style>
+        .mandatory
+        {
+            color: red;
+            font-weight: bold;
+        }
+        
+        td
+        {
+            font-size: large;
+            font-weight: bold;
+        }
+        
+        .button-dummy
+        {
+            background: rgb(66, 184, 221);
+            height: 50px;
+            width: 100px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .auto-style1
+        {
+            height: 26px;
+            width: 200px;
+            font-weight: normal;
+        }
+        
+        .heading
+        {
+            color: red;
+            font-size: larger;
+            font-weight: bold;
+        }
+        
+        .hlink
+        {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .hlink:hover
+        {
+            color: black;
+        }
+        
+        .hlink2
+        {
+            color: white;
+            font-family: Calibri;
+            font-size: large;
+            font-weight: bold;
+        }
+        
+        .txt
+        {
+            width: 100px;
+            height: 25px;
+            font: 14px calibri;
+            border: 1px solid #AFAFAF;
+        }
+        
+        /*Loader div*/
+        .modalwindow
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 99;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            min-height: 100%;
+            width: 100%;
+        }
+        
+        .loaderDiv
+        {
+            font-family: Arial;
+            font-size: 10pt;
+            border: 5px solid #EFEFEF; /*border: 5px solid #67CFF5;*/ /*width: 200px;
+            height: 100px;*/
+            display: none;
+            position: fixed;
+            background-color: White;
+            z-index: 999;
+        }
+        ul
+        {
+            color: Black;
+            list-style: disc;
+        }
+        
+        ul li
+        {
+            font: 18px Calibri;
+            padding: 5px;
+            text-align: justify;
+        }
+        ol
+        {
+            color: Black;
+            list-style: decimal;
+        }
+        
+        ol li
+        {
+            font: 18px Calibri;
+            padding: 5px;
+            text-align: justify;
+        }
+        
+        
+        .GridPager a, .GridPager span
+        {
+            display: block;
+            height: 25px;
+            width: 25px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+            border: SOLID 1px white;
+            margin-right: 5px;
+        }
+        .GridPager a
+        {
+            color: white;
+        }
+        .GridPager span
+        {
+            color: red;
+        }
+        
+        .extension_title
+        {
+            margin-top: 70px;
+            width: 80%;
+            background-color: #0077B6;
+            color: #fff;
+            font: 18px calibri;
+        }
+    </style>
+    <link href="./Preferences_files/tracker.css" rel="stylesheet">
+    <script src="./Preferences_files/jquery.min.js.download"></script>
+    <style type="text/css">
+        #sse2
+        {
+            background-color: #0077B6;
+            height: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            box-sizing: content-box;
+            width: 79%;
+            border-color: #0077B6;
+            border-style: solid;
+            border-width: 2px;
+        }
+        
+        #sses2
+        {
+            margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
+        }
+        
+        .style1
+        {
+            width: 292px;
+        }
+        
+        .style2
+        {
+            height: 26px;
+            width: 292px;
+            font-weight: normal;
+        }
+    </style>
+
+    <script src="./Preferences_files/jquery.sumoselect.min.js.download"></script>
+    <link href="./Preferences_files/sumoselect.min.css" rel="stylesheet">
+    <script type="text/javascript">
+    //$(function () {
+    //    $('[id*=lstLanguages]').multiselect({
+    //        includeSelectAllOption: false                
+    //    });
+    //});
+    $(function () {
+        $('[id*=lstApLanguages]').SumoSelect({
+            okCancelInMulti: true
+        });
+    });
+    </script>
+
+
+    
+    <script type="text/javascript">
+        function ShowProgress() {
+            setTimeout(function () {
+                var modal = $('<div />');
+                modal.addClass("modalwindow");
+                $('body').append(modal);
+                var loading = $(".loaderDiv");
+                loading.show();
+                var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+                var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+                loading.css({ top: top, left: left });
+            }, 200);
+        }
+
+         
+
+        if ($("#lstApLanguages option:selected").length == 0) {
+            errmsg += "Please select languages known \n";
+        }
+
+        $('#lstApLanguages').change(function () {
+            $('#hdnchk').val('0');                                 //Setting preview check value to false 
+            var lan = "";
+            $('#lstApLanguages :selected').each(function (i, selected) {
+                if (lan == "") {
+                    lan = lan + $(selected).text();
+                }
+                else {
+                    lan = lan + ", " + $(selected).text();
+                }
+            });
+            $('#lblLanguages').text(lan);
+        });
+
+        $(function () {
+            $('body').on('click', '#btn_Preview', function (e) {
+                if (validation()) {
+                    ShowProgress();
+                }
+                else {
+                    e.preventDefault();
+                }
+            });
+
+            $('body').on('change', '#ddldiv1', function (e) {
+                if ($('#ddldiv1 option:selected').index() != 0) {
+                    ShowProgress();
+                }
+                else {
+                    e.preventDefault();
+                }
+            });
+
+            $('body').on('change', '#ddlverifycircle', function (e) {
+                if ($('#ddlverifycircle option:selected').index() != 0) {
+                    ShowProgress();
+                }
+                else {
+                    e.preventDefault();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body onload="backhis()" style="background-color: #E6E6E6">
+    <noscript>
+        <style type="text/css">
+            form
+            {
+                display: none;
+            }
+        </style>
+        <div style="width: 500px; height: 200px; left: 50%; margin-left: -250px; top: 50%;
+            margin-top: -100px; position: absolute; text-align: left;">
+            <span style="font-family: Calibri; font-size: 26px; color: red">Error</span><br />
+            <br />
+            <span style="font-family: Calibri; font-size: 18px;">JavaScript is disabled in this
+                browser. Please enable JavaScript and try again.</span>
+        </div>
+    </noscript>
+    <form name="form1" method="post" action="https://indiapostgdsonline1.cept.gov.in/Reg_Preferences.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="lnkExcelDownload">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQyNDAwOTAxNg9kFgICAw9kFiICBw8PFgIeBFRleHQFDjI0MTNBRUM4RTlEQUJDZGQCCQ8PFgIfAAUZS09UTUlSRSBTT01BTkFUSCBTQU1CSEFKSWRkAgsPDxYCHwAFBlNVTklUQWRkAg8PDxYCHwAFCjE3LzA0LzIwMDFkZAIRDw8WAh8ABQFNZGQCEw8PFgIfAAUCU0NkZAIWDw8WAh8ABQtNYWhhcmFzaHRyYWRkAhgPEA8WBh4NRGF0YVRleHRGaWVsZAUIRGl2aXNpb24eDkRhdGFWYWx1ZUZpZWxkBQ1EaXZpc2lvbl9Db2RlHgtfIURhdGFCb3VuZGdkEBUqD1NlbGVjdCBEaXZpc2lvbhNBaG1lZG5hZ2FyIERpdmlzaW9uDkFrb2xhIERpdmlzaW9uEkFtYXJhdmF0aSBEaXZpc2lvbhNBdXJhbmdhYmFkIERpdmlzaW9uEUJhcmFtYXRpIERpdmlzaW9uDUJlZWQgRGl2aXNpb24RQmh1c2F2YWwgRGl2aXNpb24QQnVsZGFuYSBEaXZpc2lvbhNDaGFuZHJhcHVyIERpdmlzaW9uDkRodWxlIERpdmlzaW9uDEdvYSBEaXZpc2lvbhBKYWxnYW9uIERpdmlzaW9uDkthcmFkIERpdmlzaW9uEUtvbGhhcHVyIERpdmlzaW9uEU1hbGVnYW9uIERpdmlzaW9uH011bWJhaSBDaXR5IE5vcnRoIFdlc3QgRGl2aXNpb24aTXVtYmFpIENpdHkgU291dGggRGl2aXNpb24UTmFncHVyIENpdHkgRGl2aXNpb24YTmFncHVyIE1vZmZ1c2lsIERpdmlzaW9uD05hbmRlZCBEaXZpc2lvbg5OYXNpayBEaXZpc2lvbhROYXZpIE11bWJhaSBEaXZpc2lvbhJPc21hbmFiYWQgRGl2aXNpb24QUGFsZ2hhciBEaXZpc2lvbhNQYW5kaGFycHVyIERpdmlzaW9uElBoYXJiaGFuaSBEaXZpc2lvbhdQdW5lIENpdHkgRWFzdCBEaXZpc2lvbhdQdW5lIENpdHkgV2VzdCBEaXZpc2lvbhZQdW5lIE1vZmZ1c2lsIERpdmlzaW9uD1JhaWdhZCBEaXZpc2lvbhJSQVROQUdJUkkgRElWSVNJT04PUk1TIEJNIEROIE1JUkFKEVJNUyBMIEROIEJIVVNBV0FMD1NBTkdMSSBESVZJU0lPTg9TYXRhcmEgRGl2aXNpb24TU2hyaXJhbXB1ciBEaXZpc2lvbhNTSU5ESFVEVVJHIERJVklTSU9OEFNvbGFwdXIgRGl2aXNpb24OVGhhbmUgRGl2aXNpb24PV2FyZGhhIERpdmlzaW9uEFllb3RtYWwgRGl2aXNpb24VKg9TZWxlY3QgRGl2aXNpb24NRFYyNDQwMTAwMDAwMA1EVjI0MzAxMDAwMDAwDURWMjQzMDIwMDAwMDANRFYyNDUwMTAwMDAwMA1EVjI0NDEwMDAwMDAwDURWMjQ1MDIwMDAwMDANRFYyNDUwMzAwMDAwMA1EVjI0MzAzMDAwMDAwDURWMjQzMDQwMDAwMDANRFYyNDUwNDAwMDAwMA1EVjI0MTAxMDAwMDAwDURWMjQ1MDUwMDAwMDANRFYyNDQwOTAwMDAwMA1EVjI0MTAyMDAwMDAwDURWMjQ1MDYwMDAwMDANRFYyNDIwNDAwMDAwMA1EVjI0MjA1MDAwMDAwDURWMjQzMDUwMDAwMDANRFYyNDMwNjAwMDAwMA1EVjI0NTA3MDAwMDAwDURWMjQ1MDgwMDAwMDANRFYyNDIwODAwMDAwMA1EVjI0NTA5MDAwMDAwDURWMjQyMTEwMDAwMDANRFYyNDQwMjAwMDAwMA1EVjI0NTEwMDAwMDAwDURWMjQ0MDMwMDAwMDANRFYyNDQwNDAwMDAwMA1EVjI0NDA1MDAwMDAwDURWMjQyMDkwMDAwMDANRFYyNDEwMzAwMDAwMA1STTI0MTUwMDAwMDAwDVJNMjQ1NTAwMDAwMDANRFYyNDEwNDAwMDAwMA1EVjI0NDA2MDAwMDAwDURWMjQ0MDcwMDAwMDANRFYyNDEwNTAwMDAwMA1EVjI0NDA4MDAwMDAwDURWMjQyMTAwMDAwMDANRFYyNDMwNzAwMDAwMA1EVjI0MzA4MDAwMDAwFCsDKmdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBAg5kAhsPFgIeB1Zpc2libGVoFgJmD2QWAgIDDxBkZBYAZAIdDxYCHwRoZAIfDxYCHwRnZAIhDzwrABEDAA8WBB8DZx4LXyFJdGVtQ291bnQCJmQBEBYAFgAWAAwUKwAAFgJmD2QWFgIBD2QWCGYPDxYCHwAFATFkZAIBDw8WAh8ABRFLb2xoYXB1ciBEaXZpc2lvbmRkAgIPDxYCHwAFC0FpbmFwdXIgQi5PZGQCAw8PFgIfAAUhR0RTIEJQTSAtIFVSIC0gUnMuMTIwMDAgKE1hcmF0aGkpZGQCAg9kFghmDw8WAh8ABQEyZGQCAQ8PFgIfAAURS29saGFwdXIgRGl2aXNpb25kZAICDw8WAh8ABQpBa2FudXIgQi5PZGQCAw8PFgIfAAUhR0RTIEJQTSAtIFVSIC0gUnMuMTIwMDAgKE1hcmF0aGkpZGQCAw9kFghmDw8WAh8ABQEzZGQCAQ8PFgIfAAURS29saGFwdXIgRGl2aXNpb25kZAICDw8WAh8ABQlBbWJhcCBCLk9kZAIDDw8WAh8ABSFHRFMgQlBNIC0gVVIgLSBScy4xMjAwMCAoTWFyYXRoaSlkZAIED2QWCGYPDxYCHwAFATRkZAIBDw8WAh8ABRFLb2xoYXB1ciBEaXZpc2lvbmRkAgIPDxYCHwAFDEFyanVud2FkIEIuT2RkAgMPDxYCHwAFIkdEUyBBQlBNIC0gVVIgLSBScy4xMDAwMCAoTWFyYXRoaSlkZAIFD2QWCGYPDxYCHwAFATVkZAIBDw8WAh8ABRFLb2xoYXB1ciBEaXZpc2lvbmRkAgIPDxYCHwAFCkF0aWdyZSBCLk9kZAIDDw8WAh8ABSJHRFMgQUJQTSAtIFVSIC0gUnMuMTAwMDAgKE1hcmF0aGkpZGQCBg9kFghmDw8WAh8ABQE2ZGQCAQ8PFgIfAAURS29saGFwdXIgRGl2aXNpb25kZAICDw8WAh8ABQ5CYXNhcmdlIEJLIEIuT2RkAgMPDxYCHwAFIUdEUyBCUE0gLSBVUiAtIFJzLjEyMDAwIChNYXJhdGhpKWRkAgcPZBYIZg8PFgIfAAUBN2RkAgEPDxYCHwAFEUtvbGhhcHVyIERpdmlzaW9uZGQCAg8PFgIfAAUMQmhhZGdhb24gQi5PZGQCAw8PFgIfAAUiR0RTIEFCUE0gLSBVUiAtIFJzLjEwMDAwIChNYXJhdGhpKWRkAggPZBYIZg8PFgIfAAUBOGRkAgEPDxYCHwAFEUtvbGhhcHVyIERpdmlzaW9uZGQCAg8PFgIfAAUNQmhlbmR3YWRlIEIuT2RkAgMPDxYCHwAFIkdEUyBBQlBNIC0gVVIgLSBScy4xMDAwMCAoTWFyYXRoaSlkZAIJD2QWCGYPDxYCHwAFATlkZAIBDw8WAh8ABRFLb2xoYXB1ciBEaXZpc2lvbmRkAgIPDxYCHwAFCkRoYW1vZCBCLk9kZAIDDw8WAh8ABSJHRFMgQUJQTSAtIFVSIC0gUnMuMTAwMDAgKE1hcmF0aGkpZGQCCg9kFghmDw8WAh8ABQIxMGRkAgEPDxYCHwAFEUtvbGhhcHVyIERpdmlzaW9uZGQCAg8PFgIfAAUMSGFuaW1uYWwgQi5PZGQCAw8PFgIfAAUhR0RTIEJQTSAtIFVSIC0gUnMuMTIwMDAgKE1hcmF0aGkpZGQCCw8PFgIfBGhkZAIjDxYCHwRnZAIlDw8WAh8EaGRkAicPFgIfBGdkAikPFgIfBGcWAgICD2QWAgIBDxBkZBYBAg5kAisPFgIfBGcWAgICD2QWAgIBDxAPFgYfAQUIRGl2aXNpb24fAgUNRGl2aXNpb25fQ29kZR8DZ2QQFTEPU2VsZWN0IERpdmlzaW9uE0FobWVkbmFnYXIgRGl2aXNpb24OQWtvbGEgRGl2aXNpb24SQW1hcmF2YXRpIERpdmlzaW9uE0F1cmFuZ2FiYWQgRGl2aXNpb24RQmFyYW1hdGkgRGl2aXNpb24NQmVlZCBEaXZpc2lvbhFCaHVzYXZhbCBEaXZpc2lvbhBCdWxkYW5hIERpdmlzaW9uE0NoYW5kcmFwdXIgRGl2aXNpb24ORGh1bGUgRGl2aXNpb24MR29hIERpdmlzaW9uEEphbGdhb24gRGl2aXNpb24OS2FyYWQgRGl2aXNpb24RS29saGFwdXIgRGl2aXNpb24RTWFsZWdhb24gRGl2aXNpb24ZTXVtYmFpIENpdHkgRWFzdCBEaXZpc2lvbhpNdW1iYWkgQ2l0eSBOb3J0aCBEaXZpc2lvbh9NdW1iYWkgQ2l0eSBOb3J0aCBFYXN0IERpdmlzaW9uH011bWJhaSBDaXR5IE5vcnRoIFdlc3QgRGl2aXNpb24aTXVtYmFpIENpdHkgU291dGggRGl2aXNpb24ZTXVtYmFpIENpdHkgV2VzdCBEaXZpc2lvbhNNdW1iYWkgR1BPIERpdmlzaW9uFE5hZ3B1ciBDaXR5IERpdmlzaW9uGE5hZ3B1ciBNb2ZmdXNpbCBEaXZpc2lvbg9OYW5kZWQgRGl2aXNpb24OTmFzaWsgRGl2aXNpb24UTmF2aSBNdW1iYWkgRGl2aXNpb24ST3NtYW5hYmFkIERpdmlzaW9uEFBhbGdoYXIgRGl2aXNpb24TUGFuZGhhcnB1ciBEaXZpc2lvbhJQaGFyYmhhbmkgRGl2aXNpb24XUHVuZSBDaXR5IEVhc3QgRGl2aXNpb24XUHVuZSBDaXR5IFdlc3QgRGl2aXNpb24WUHVuZSBNb2ZmdXNpbCBEaXZpc2lvbg9SYWlnYWQgRGl2aXNpb24SUkFUTkFHSVJJIERJVklTSU9ODVJNUyBCIEROIFBVTkUPUk1TIEJNIEROIE1JUkFKFVJNUyBGIERJVklTSU9OIE5BR1BVUhFSTVMgTCBETiBCSFVTQVdBTA9TQU5HTEkgRElWSVNJT04PU2F0YXJhIERpdmlzaW9uE1NocmlyYW1wdXIgRGl2aXNpb24TU0lOREhVRFVSRyBESVZJU0lPThBTb2xhcHVyIERpdmlzaW9uDlRoYW5lIERpdmlzaW9uD1dhcmRoYSBEaXZpc2lvbhBZZW90bWFsIERpdmlzaW9uFTEPU2VsZWN0IERpdmlzaW9uDURWMjQ0MDEwMDAwMDANRFYyNDMwMTAwMDAwMA1EVjI0MzAyMDAwMDAwDURWMjQ1MDEwMDAwMDANRFYyNDQxMDAwMDAwMA1EVjI0NTAyMDAwMDAwDURWMjQ1MDMwMDAwMDANRFYyNDMwMzAwMDAwMA1EVjI0MzA0MDAwMDAwDURWMjQ1MDQwMDAwMDANRFYyNDEwMTAwMDAwMA1EVjI0NTA1MDAwMDAwDURWMjQ0MDkwMDAwMDANRFYyNDEwMjAwMDAwMA1EVjI0NTA2MDAwMDAwDURWMjQyMDEwMDAwMDANRFYyNDIwMjAwMDAwMA1EVjI0MjAzMDAwMDAwDURWMjQyMDQwMDAwMDANRFYyNDIwNTAwMDAwMA1EVjI0MjA2MDAwMDAwDURWMjQyMDcwMDAwMDANRFYyNDMwNTAwMDAwMA1EVjI0MzA2MDAwMDAwDURWMjQ1MDcwMDAwMDANRFYyNDUwODAwMDAwMA1EVjI0MjA4MDAwMDAwDURWMjQ1MDkwMDAwMDANRFYyNDIxMTAwMDAwMA1EVjI0NDAyMDAwMDAwDURWMjQ1MTAwMDAwMDANRFYyNDQwMzAwMDAwMA1EVjI0NDA0MDAwMDAwDURWMjQ0MDUwMDAwMDANRFYyNDIwOTAwMDAwMA1EVjI0MTAzMDAwMDAwDVJNMjQ0NTAwMDAwMDANUk0yNDE1MDAwMDAwMA1STTI0MzUwMDAwMDAwDVJNMjQ1NTAwMDAwMDANRFYyNDEwNDAwMDAwMA1EVjI0NDA2MDAwMDAwDURWMjQ0MDcwMDAwMDANRFYyNDEwNTAwMDAwMA1EVjI0NDA4MDAwMDAwDURWMjQyMTAwMDAwMDANRFYyNDMwNzAwMDAwMA1EVjI0MzA4MDAwMDAwFCsDMWdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUOY2hrRGVjbGFyYXRpb24FCGdyZFBvc3RzDzwrAAwBCAIEZD8JtoLkumbG82lF++9NlVWs1D5Inca/h86Mlb1rt6nN">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Preferences_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./Preferences_files/ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./Preferences_files/ScriptResource(1).axd" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F92170E5">
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0">
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="868">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('script', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+    
+    <div style="height: 20px">
+    </div>
+    <div align="center">
+        <div style="display: table; height: 30px; overflow: hidden; background-color: #0077B6;
+            width: 80%">
+        </div>
+        <div style="display: table; height: 100px; overflow: hidden; background-color: White;
+            width: 80%">
+            <img id="Img1" src="./Preferences_files/logo1.png" style="height: 90px; float: left; padding-left: 40px;
+                padding-top: 5px">
+            <div style="display: table-cell; vertical-align: middle; width: 100%; text-align: center">
+                <div style="font-family: Calibri; font-size: xx-large; font-weight: normal; color: #b62a26">
+                    Online Gramin Dak Sevak Engagement
+                </div>
+            </div>
+            <img id="Image3" src="./Preferences_files/Emblem_of_India.png" style="height: 90px; float: right">
+        </div>
+        <div style="display: table; height: 30px; overflow: hidden; background-color: #0077B6;
+            width: 80%">
+        </div>
+    </div>
+    <div style="height: 30px">
+    </div>
+    <div align="center">
+        <div id="sse2">
+            <div id="sses2">
+                <span id="Label1" class="hlink2">Candidate Application Form</span>
+            </div>
+        </div>
+    </div>
+    <div align="center">
+        <div style="border: 1px solid; border-radius: 6px; background-color: white; width: 80%">
+            <ol class="progtrckr" data-progtrckr-steps="4">
+                <li class="progtrckr-done">Registration Details</li>
+                <li class="progtrckr-done">Application Form</li>
+                
+                <li class="progtrckr-done">Choose Preferences</li>
+                <li class="progtrckr-todo">Print Application</li>
+            </ol>
+            <table style="line-height: 30px; width: 100%">
+                <tbody><tr>
+                    <td>                        
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+    <div align="center">
+        <div style="width: 80%">
+            <div style="font-family: Calibri; font-size: medium; width: 48%; border-left: solid 3px #0077B6;
+                border-top: solid 3px #0077B6; border-bottom: solid 3px #0077B6; float: left">
+                <table style="width: 100%; background-color: white;">
+                    <tbody><tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            Reg No :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lblregno">2413AEC8E9DABC</span>
+                        </td>
+                    </tr>
+                    <tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            Name :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lblname">KOTMIRE SOMANATH SAMBHAJI</span>
+                        </td>
+                    </tr>
+                    <tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            Father/Mother Name :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lblfather">SUNITA</span>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            
+            
+            <div style="font-family: Calibri; font-size: medium; width: 48%; border-top: solid 3px #0077B6;
+                border-right: solid 3px #0077B6; border-bottom: solid 3px #0077B6; float: left">
+                <table style="width: 100%; background-color: white;">
+                    <tbody><tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            DOB :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lbldob">17/04/2001</span>
+                        </td>
+                    </tr>
+                    <tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            Gender :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lblgender">M</span>
+                        </td>
+                    </tr>
+                    <tr style="width: 100%">
+                        <td style="width: 49%; text-align: right; font-size: medium; font-weight: normal">
+                            Community :
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 49%; text-align: left; font-size: medium; font-weight: normal">
+                            <span id="lblcommunity">SC</span>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div style="height: 20px;">
+        </div>
+        
+        <div class="extension_title">
+            <p style="padding: 10px; font-size: 20px">
+                <b>Choose your preferences here</b></p>
+        </div>
+        <div align="center">
+            <div style="width: 80%; font-weight: normal;">
+                <table style="line-height: 30px; width: 100%; font-family: Calibri; background-color: white;">
+                    <tbody><tr>
+                        <td class="style1">
+                        </td>
+                        <td style="font-weight: normal;">
+                            Circle Applying for :
+                        </td>
+                        <td>
+                            <span id="lbl_circle">Maharashtra</span>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style2">
+                            <br>
+                        </td>
+                        <td class="style2">
+                            Select Division applying for:<br>
+                        </td>
+                        <td class="auto-style1">
+                            <select name="ddldiv1" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddldiv1\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddldiv1" tabindex="39" style="font-size:Medium;width: 120px;
+                                font-family: calibri">
+	<option value="Select Division">Select Division</option>
+	<option value="DV24401000000">Ahmednagar Division</option>
+	<option value="DV24301000000">Akola Division</option>
+	<option value="DV24302000000">Amaravati Division</option>
+	<option value="DV24501000000">Aurangabad Division</option>
+	<option value="DV24410000000">Baramati Division</option>
+	<option value="DV24502000000">Beed Division</option>
+	<option value="DV24503000000">Bhusaval Division</option>
+	<option value="DV24303000000">Buldana Division</option>
+	<option value="DV24304000000">Chandrapur Division</option>
+	<option value="DV24504000000">Dhule Division</option>
+	<option value="DV24101000000">Goa Division</option>
+	<option value="DV24505000000">Jalgaon Division</option>
+	<option value="DV24409000000">Karad Division</option>
+	<option selected="selected" value="DV24102000000">Kolhapur Division</option>
+	<option value="DV24506000000">Malegaon Division</option>
+	<option value="DV24204000000">Mumbai City North West Division</option>
+	<option value="DV24205000000">Mumbai City South Division</option>
+	<option value="DV24305000000">Nagpur City Division</option>
+	<option value="DV24306000000">Nagpur Moffusil Division</option>
+	<option value="DV24507000000">Nanded Division</option>
+	<option value="DV24508000000">Nasik Division</option>
+	<option value="DV24208000000">Navi Mumbai Division</option>
+	<option value="DV24509000000">Osmanabad Division</option>
+	<option value="DV24211000000">Palghar Division</option>
+	<option value="DV24402000000">Pandharpur Division</option>
+	<option value="DV24510000000">Pharbhani Division</option>
+	<option value="DV24403000000">Pune City East Division</option>
+	<option value="DV24404000000">Pune City West Division</option>
+	<option value="DV24405000000">Pune Moffusil Division</option>
+	<option value="DV24209000000">Raigad Division</option>
+	<option value="DV24103000000">RATNAGIRI DIVISION</option>
+	<option value="RM24150000000">RMS BM DN MIRAJ</option>
+	<option value="RM24550000000">RMS L DN BHUSAWAL</option>
+	<option value="DV24104000000">SANGLI DIVISION</option>
+	<option value="DV24406000000">Satara Division</option>
+	<option value="DV24407000000">Shrirampur Division</option>
+	<option value="DV24105000000">SINDHUDURG DIVISION</option>
+	<option value="DV24408000000">Solapur Division</option>
+	<option value="DV24210000000">Thane Division</option>
+	<option value="DV24307000000">Wardha Division</option>
+	<option value="DV24308000000">Yeotmal Division</option>
+
+</select>
+                        </td>
+                        <td class="auto-style1">
+                            <br>
+                        </td>
+                    </tr>
+
+                  
+
+                    
+                  
+                      
+                        
+                      
+
+
+
+                    <tr id="tr_info1">
+	<td colspan="4" style="text-align: left;">
+                            
+                            <ul>
+                                <li>Following posts are shown based on your eligibility criteria such as Community,
+                                    PWD and Local language studied in 10th class</li>
+                                <li>Candidates are required to enter the post preference number in the text boxes shown
+                                    against each post</li>
+                            </ul>
+                        </td>
+</tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <div>
+	<table cellspacing="0" cellpadding="4" align="Center" border="0" id="grdPosts" style="color:#333333;width:80%;border-collapse:collapse;">
+		<tbody><tr style="color:White;background-color:#507CD1;font-weight:bold;">
+			<th align="center" scope="col">Sl No</th><th align="center" scope="col">Division</th><th align="center" scope="col">Office</th><th align="center" scope="col">Post</th><th align="center" scope="col">Post Preference</th>
+		</tr><tr style="background-color:#EFF3FB;">
+			<td align="center">1</td><td align="left">Kolhapur Division</td><td align="left">Ainapur B.O</td><td align="left">GDS BPM - UR - Rs.12000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl02$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_0" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:White;">
+			<td align="center">2</td><td align="left">Kolhapur Division</td><td align="left">Akanur B.O</td><td align="left">GDS BPM - UR - Rs.12000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl03$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_1" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:#EFF3FB;">
+			<td align="center">3</td><td align="left">Kolhapur Division</td><td align="left">Ambap B.O</td><td align="left">GDS BPM - UR - Rs.12000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl04$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_2" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:White;">
+			<td align="center">4</td><td align="left">Kolhapur Division</td><td align="left">Arjunwad B.O</td><td align="left">GDS ABPM - UR - Rs.10000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl05$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_3" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:#EFF3FB;">
+			<td align="center">5</td><td align="left">Kolhapur Division</td><td align="left">Atigre B.O</td><td align="left">GDS ABPM - UR - Rs.10000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl06$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_4" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:White;">
+			<td align="center">6</td><td align="left">Kolhapur Division</td><td align="left">Basarge BK B.O</td><td align="left">GDS BPM - UR - Rs.12000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl07$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_5" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:#EFF3FB;">
+			<td align="center">7</td><td align="left">Kolhapur Division</td><td align="left">Bhadgaon B.O</td><td align="left">GDS ABPM - UR - Rs.10000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl08$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_6" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:White;">
+			<td align="center">8</td><td align="left">Kolhapur Division</td><td align="left">Bhendwade B.O</td><td align="left">GDS ABPM - UR - Rs.10000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl09$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_7" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:#EFF3FB;">
+			<td align="center">9</td><td align="left">Kolhapur Division</td><td align="left">Dhamod B.O</td><td align="left">GDS ABPM - UR - Rs.10000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl10$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_8" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr style="background-color:White;">
+			<td align="center">10</td><td align="left">Kolhapur Division</td><td align="left">Hanimnal B.O</td><td align="left">GDS BPM - UR - Rs.12000 (Marathi)</td><td align="center">
+                                            <input name="grdPosts$ctl11$txtPostPreference" type="text" maxlength="4" id="grdPosts_txtPostPreference_9" class="txt" placeholder="Enter Preference Number">
+                                        </td>
+		</tr><tr class="GridPager" align="center" style="color:White;background-color:#2461BF;">
+			<td colspan="5"><table border="0">
+				<tbody><tr>
+					<td><span>1</span></td><td><a href="javascript:__doPostBack(&#39;grdPosts&#39;,&#39;Page$2&#39;)" style="color:White;">2</a></td><td><a href="javascript:__doPostBack(&#39;grdPosts&#39;,&#39;Page$3&#39;)" style="color:White;">3</a></td><td><a href="javascript:__doPostBack(&#39;grdPosts&#39;,&#39;Page$4&#39;)" style="color:White;">4</a></td>
+				</tr>
+			</tbody></table></td>
+		</tr>
+	</tbody></table>
+</div>
+                        </td>
+                    </tr>
+                    <tr id="tr_info11">
+	<td colspan="4" align="center">
+                            <a id="lnkExcelDownload" href="javascript:__doPostBack(&#39;lnkExcelDownload&#39;,&#39;&#39;)">Click here</a>
+                            &nbsp; to download the eligible vacancies of the selected Division.
+                        </td>
+</tr>
+
+                    <tr>
+                        <td colspan="4" align="center">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="background-color: #E6E6E6; height: 30px;">
+                        </td>
+                    </tr>
+                    <tr id="tr_info2">
+	<td colspan="4" style="text-align: center;">
+                            Please select Circle and Division for verification of documents in case of selection
+                        </td>
+</tr>
+
+                    <tr id="tr_info3">
+	<td class="style1">
+                        </td>
+	<td class="style2">
+                            Select Circle:
+                        </td>
+	<td>
+                            <select name="ddlverifycircle" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlverifycircle\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlverifycircle" tabindex="39" style="font-size:Medium;width: 120px;
+                                font-family: calibri">
+		<option value="0">Select Circle</option>
+		<option value="CR11000000000">Andhra Pradesh</option>
+		<option value="CR12000000000">Assam</option>
+		<option value="CR13000000000">Bihar</option>
+		<option value="CR14000000000">Chattisgarh</option>
+		<option value="CR15000000000">Delhi</option>
+		<option value="CR16000000000">Gujarat</option>
+		<option value="CR17000000000">Haryana</option>
+		<option value="CR18000000000">Himachal Pradesh</option>
+		<option value="CR19000000000">Jammu Kashmir</option>
+		<option value="CR20000000000">Jharkhand</option>
+		<option value="CR21000000000">Karnataka</option>
+		<option value="CR22000000000">Kerala</option>
+		<option value="CR23000000000">Madhya Pradesh</option>
+		<option selected="selected" value="CR24000000000">Maharashtra</option>
+		<option value="CR25000000000">North Eastern</option>
+		<option value="CR26000000000">Odisha</option>
+		<option value="CR27000000000">Punjab</option>
+		<option value="CR28000000000">Rajasthan</option>
+		<option value="CR29000000000">Tamilnadu</option>
+		<option value="CR33000000000">Telangana</option>
+		<option value="CR30000000000">Uttar Pradesh</option>
+		<option value="CR31000000000">Uttarakhand</option>
+		<option value="CR32000000000">West Bengal</option>
+
+	</select>
+                        </td>
+	<td>
+                        </td>
+</tr>
+
+                    <tr id="tr_info4">
+	<td class="style2">
+                            <br>
+                        </td>
+	<td class="style2">
+                            Select Division:<br>
+                        </td>
+	<td class="auto-style1">
+                            <select name="ddlverifydiv" id="ddlverifydiv" tabindex="39" style="font-size:Medium;width: 120px; font-family: calibri">
+		<option value="Select Division">Select Division</option>
+		<option value="DV24401000000">Ahmednagar Division</option>
+		<option value="DV24301000000">Akola Division</option>
+		<option value="DV24302000000">Amaravati Division</option>
+		<option value="DV24501000000">Aurangabad Division</option>
+		<option value="DV24410000000">Baramati Division</option>
+		<option value="DV24502000000">Beed Division</option>
+		<option value="DV24503000000">Bhusaval Division</option>
+		<option value="DV24303000000">Buldana Division</option>
+		<option value="DV24304000000">Chandrapur Division</option>
+		<option value="DV24504000000">Dhule Division</option>
+		<option value="DV24101000000">Goa Division</option>
+		<option value="DV24505000000">Jalgaon Division</option>
+		<option value="DV24409000000">Karad Division</option>
+		<option selected="selected" value="DV24102000000">Kolhapur Division</option>
+		<option value="DV24506000000">Malegaon Division</option>
+		<option value="DV24201000000">Mumbai City East Division</option>
+		<option value="DV24202000000">Mumbai City North Division</option>
+		<option value="DV24203000000">Mumbai City North East Division</option>
+		<option value="DV24204000000">Mumbai City North West Division</option>
+		<option value="DV24205000000">Mumbai City South Division</option>
+		<option value="DV24206000000">Mumbai City West Division</option>
+		<option value="DV24207000000">Mumbai GPO Division</option>
+		<option value="DV24305000000">Nagpur City Division</option>
+		<option value="DV24306000000">Nagpur Moffusil Division</option>
+		<option value="DV24507000000">Nanded Division</option>
+		<option value="DV24508000000">Nasik Division</option>
+		<option value="DV24208000000">Navi Mumbai Division</option>
+		<option value="DV24509000000">Osmanabad Division</option>
+		<option value="DV24211000000">Palghar Division</option>
+		<option value="DV24402000000">Pandharpur Division</option>
+		<option value="DV24510000000">Pharbhani Division</option>
+		<option value="DV24403000000">Pune City East Division</option>
+		<option value="DV24404000000">Pune City West Division</option>
+		<option value="DV24405000000">Pune Moffusil Division</option>
+		<option value="DV24209000000">Raigad Division</option>
+		<option value="DV24103000000">RATNAGIRI DIVISION</option>
+		<option value="RM24450000000">RMS B DN PUNE</option>
+		<option value="RM24150000000">RMS BM DN MIRAJ</option>
+		<option value="RM24350000000">RMS F DIVISION NAGPUR</option>
+		<option value="RM24550000000">RMS L DN BHUSAWAL</option>
+		<option value="DV24104000000">SANGLI DIVISION</option>
+		<option value="DV24406000000">Satara Division</option>
+		<option value="DV24407000000">Shrirampur Division</option>
+		<option value="DV24105000000">SINDHUDURG DIVISION</option>
+		<option value="DV24408000000">Solapur Division</option>
+		<option value="DV24210000000">Thane Division</option>
+		<option value="DV24307000000">Wardha Division</option>
+		<option value="DV24308000000">Yeotmal Division</option>
+
+	</select>
+                        </td>
+	<td class="auto-style1">
+                            <br>
+                        </td>
+</tr>
+
+                    <tr>
+                        <td colspan="4" style="background-color: #E6E6E6; height: 30px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: left; padding: 0px 10px;">
+                            Declarations
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: left; padding: 0px 10px;">
+                            <input id="chkDeclaration" type="checkbox" name="chkDeclaration"><span style="font: 18px Calibri;
+                                padding-left: 10px;">I hereby declare that,</span>
+                            <ol>
+                                <li>I will have other sources of income besides the TRCA and allowances to be paid by
+                                    the Government to support livelihood for myself and my family, in the event of my
+                                    engagement to the post of Gramin Dak Sevak BPM/ABPM/Dak Sevaks. (Annexure IV)</li>
+                                <li>I am not holding an elective office will be considered for engagement to the post
+                                    and does not engaged in any activity with any outside agency, which would be detrimental
+                                    to the business or interest of the Post Office.</li>
+                                <li>I have studied and understood the condition of residence and accommodation as per
+                                    the notification clause 12 and here by declare that I will be abiding to meet the
+                                    requirements if got the engagement.</li>
+                                <li>I will submit the required certificates of 10th Marks Memo, Photograph, Identity
+                                    Proof, community(SC/ST/OBC)/disability(PWD A/B/C/D/E)/EWS in the prescribed format
+                                    at the time of document verification if got engagement.</li>
+                                <li>I undertake that I have studied notification document thoroughly and found myself
+                                    eligible for the post of GDS/ABPM/DakSevak.</li>
+                                <li>I undertake that I have not been 'removed/dismissed/compulsory retired' as Govt. Servant/Gramin Dak
+                                    Sevak. </li> 
+                                <li>I hereby undertake to declare that, the details furnished by me (i.e. Age/Address/Educational
+                                    qualifications/Computer knowledge/EWS/PwD/Casteetc.) on the basis of which I am
+                                    applying for the posts of GDSBPM/ABPM/DakSevak are true to the best of my knowledge
+                                    and belief . I also undertake that, in case, any detail submitted by me is found
+                                    to be false at any stage of engagement process/during engagement, my candidature
+                                    shall be liable to be rejected against all the vacancies, applied for, or after
+                                    my engagement, I shall be terminated under GDS (Conduct and Engagement) Rules. I
+                                    also understood that I shall be liable for criminal/legal action for producing any
+                                    of false details/documents etc.</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="submit" name="btn_Preview" value="Save &amp; Proceed" onclick="return validation();" id="btn_Preview" tabindex="49" style="color:Yellow;background-color:#0077B6;font-family:calibri;font-size:Large;font-weight:bold;height:50px;width:200px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style1">
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+            <div class="loaderDiv" align="center">
+                <img id="loaderImg" src="./Preferences_files/loading.gif" style="height:100px;width:100px;border-width:0px;">
+                
+            </div>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    <div style="height: 10px">
+    </div>
+    <div align="center" style="width: 100%">
+        <div style="display: table; overflow: hidden; background-color: #0099FF; width: 100%;
+            border-radius: 6px; background-color: #0077B6; width: 80%">
+            <div style="display: table-cell; vertical-align: middle; width: 100%; text-align: center">
+                <div style="font-family: Calibri; font-size: medium; font-weight: normal; color: white">
+                    <br>
+                    This website belongs to Department of Posts, Ministry of Communications, Government
+                    of India
+                    <br>
+                    Site is best viewed in Google Chrome, Internet Explorer 9.0 and above at 1024 x
+                    768 resolution<br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 5px">
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+
+theForm.oldOnLoad = window.onload;
+window.onload = WebForm_RestoreScrollPosition;
+//]]>
+</script>
+</form>
+
+
+</body></html>
